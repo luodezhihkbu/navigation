@@ -3,10 +3,13 @@
 *{margin: 0; padding: 0;}
 ul, ol{list-style: none;}
 a{color: inherit; text-decoration: none;}
-img{max-width: 100%; max-height: 100%;}
 
 body{
     background-color: #eee;
+}
+img{
+    width: 40px;
+    height: 40px;
 }
 
 .globalHeader{
@@ -95,7 +98,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 64px;
+    font-size: 50px;
     color: #067ABB;
 }
 .siteList .site > .link{

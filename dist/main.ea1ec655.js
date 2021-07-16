@@ -126,8 +126,8 @@ var siteList = JSON.parse(localStorage.getItem('siteList')) || [{
   logo: 'J',
   url: 'https://juejin.cn'
 }, {
-  logo: 'I',
-  url: 'https://www.iconfont.cn'
+  logo: 'Z',
+  url: 'https://www.zhihu.com'
 }, {
   logo: 'S',
   url: 'https://stackoverflow.com'
@@ -140,7 +140,16 @@ var simplifyUrl = function simplifyUrl(url) {
 var render = function render() {
   $('li:not(.last)').remove();
   siteList.forEach(function (node, index) {
-    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">".concat(node.logo, "</div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n            </div> \n        </li>")).insertBefore($lastLi);
+    var $li = null;
+    var defaultUrl = ['github.com', 'juejin.cn', 'zhihu.com', 'stackoverflow.com'];
+    var url = simplifyUrl(node.url);
+
+    if (defaultUrl.indexOf(url) !== -1) {
+      $li = $("<li>\n                <div class=\"site\">\n                    <div class=\"logo\">\n                        <img class=\"x\" src=\"https://".concat(url, "/favicon.ico\">\n                    </div>\n                    <div class=\"link\">").concat(url, "</div>\n                    <div class=\"close\">\n                        <svg class=\"icon\">\n                            <use xlink:href=\"#icon-close\"></use>\n                        </svg>\n                    </div>\n                </div> \n            </li>")).insertBefore($lastLi);
+    } else {
+      $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">".concat(node.logo, "</div>\n                <div class=\"link\">").concat(url, "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n            </div> \n        </li>")).insertBefore($lastLi);
+    }
+
     $li.on('click', function () {
       window.open(node.url);
     });
@@ -153,7 +162,24 @@ var render = function render() {
   });
 };
 
+var render2 = function render2() {
+  $('li:not(.last)').remove();
+  siteList.forEach(function (node, index) {
+    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">".concat(node.logo, "</div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n            </div> \n        </li>")).insertBefore($lastLi);
+    $li.on('click', function () {
+      window.open(node.url);
+    });
+    $li.on('click', '.close', function (e) {
+      e.stopPropagation();
+      siteList.splice(index, 1);
+      localStorage.setItem('siteList', JSON.stringify(siteList));
+      render2();
+    });
+  });
+};
+
 render();
+$("img").on("error", render2);
 $('.addButton').on('click', function () {
   var url = window.prompt('请输入要添加的网址');
 
@@ -167,6 +193,7 @@ $('.addButton').on('click', function () {
   });
   localStorage.setItem('siteList', JSON.stringify(siteList));
   render();
+  $("img").on("error", render2);
 });
 $(document).on('keypress', function (e) {
   var key = e.key;
@@ -178,4 +205,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.92fd64a6.js.map
+//# sourceMappingURL=main.ea1ec655.js.map
