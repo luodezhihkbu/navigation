@@ -1,9 +1,15 @@
 const $lastLi = $('.last')
 const siteList = JSON.parse(localStorage.getItem('siteList')) || [   
     {logo: 'G', url: 'https://github.com'},
-    {logo: 'J', url: 'https://juejin.cn/'},
+    {logo: 'G', url: 'https://gitee.com'},
+    {logo: 'J', url: 'https://juejin.cn'},
+    {logo: 'S', url: 'https://stackoverflow.com'},
     {logo: 'Z', url: 'https://www.zhihu.com'},
-    {logo: 'S', url: 'https://stackoverflow.com'}
+    {logo: 'T', url: 'https://www.typescriptlang.org'},
+    {logo: 'S', url: 'https://sass.bootcss.com'},
+    {logo: 'D', url: 'https://developer.mozilla.org'},
+    {logo: 'E', url: 'https://echarts.apache.org'},
+    {logo: 'J', url: 'https://jsbin.com'}
 ]
 
 const simplifyUrl = (url) =>{
@@ -19,7 +25,7 @@ const render = () => {
         let $li = $(`<li>
             <div class="site">
                 <div class="logo">
-                    <img class="${index}" src="${node.url}/favicon.ico"> 
+                    <img class="${index}" src="${node.url}/favicon.ico" loading="lazy"> 
                 </div>
                 <div class="link">${simplifyUrl(node.url)}</div>
                 <div class="close">

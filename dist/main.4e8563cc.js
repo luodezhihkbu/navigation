@@ -123,14 +123,32 @@ var siteList = JSON.parse(localStorage.getItem('siteList')) || [{
   logo: 'G',
   url: 'https://github.com'
 }, {
+  logo: 'G',
+  url: 'https://gitee.com'
+}, {
   logo: 'J',
-  url: 'https://juejin.cn/'
+  url: 'https://juejin.cn'
+}, {
+  logo: 'S',
+  url: 'https://stackoverflow.com'
 }, {
   logo: 'Z',
   url: 'https://www.zhihu.com'
 }, {
+  logo: 'T',
+  url: 'https://www.typescriptlang.org'
+}, {
   logo: 'S',
-  url: 'https://stackoverflow.com'
+  url: 'https://sass.bootcss.com'
+}, {
+  logo: 'D',
+  url: 'https://developer.mozilla.org'
+}, {
+  logo: 'E',
+  url: 'https://echarts.apache.org'
+}, {
+  logo: 'J',
+  url: 'https://jsbin.com'
 }];
 
 var simplifyUrl = function simplifyUrl(url) {
@@ -140,7 +158,7 @@ var simplifyUrl = function simplifyUrl(url) {
 var render = function render() {
   $('li:not(.last)').remove();
   siteList.forEach(function (node, index) {
-    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">\n                    <img class=\"".concat(index, "\" src=\"").concat(node.url, "/favicon.ico\"> \n                </div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n            </div> \n        </li>")).insertBefore($lastLi);
+    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">\n                    <img class=\"".concat(index, "\" src=\"").concat(node.url, "/favicon.ico\" loading=\"lazy\"> \n                </div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n            </div> \n        </li>")).insertBefore($lastLi);
     $(".".concat(index)).on('error', function () {
       $(".".concat(index)).replaceWith("<div>".concat(node.logo, "</div>"));
     });
@@ -181,4 +199,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.8ae80403.js.map
+//# sourceMappingURL=main.4e8563cc.js.map
