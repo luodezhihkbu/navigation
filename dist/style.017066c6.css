@@ -13,7 +13,6 @@ img{
 }
 
 .globalHeader{
-    /* 未知宽度的元素水平居中的方法是，把左右的 margin 设置为同一个值。 */  
     margin: 20px;  
 }
 @media (min-width: 500px) {
@@ -25,11 +24,9 @@ img{
     display: flex;
     justify-content: space-between;
 }
-/* 媒体查询：当屏幕宽度大于等于500px（即PC端）时，把 searchForm 的下面样式合并到原有的样式中。 */
 @media (min-width: 500px) {
     .searchForm{
         max-width: 400px;
-        /* 已知宽度的元素水平居中的方法是，把 margin 的左右宽度设为 auto 来居中。 */
         margin-left: auto;
         margin-right: auto;
     }
@@ -40,12 +37,12 @@ img{
     padding: 0 10px;
     height: 40px;
     border: 1px solid #ddd;
-    border-radius: 4px; /* 边框变成圆角 */
+    border-radius: 4px;
 }
 .searchForm > button{
-    white-space: nowrap; /* button里的内容不换行 */
+    white-space: nowrap;
     padding: 0 28px;
-    border: none; /* 把默认的边框去掉 */
+    border: none;
     border-radius: 4px;
     background: #067ABB;
     color: white;
@@ -63,7 +60,6 @@ img{
     margin: 20px; 
     justify-content: space-between;
 }
-/* PC 端用负 margin 来做平均布局 */
 @media (min-width: 500px) {
     .siteList{
         margin-left: 0;
@@ -90,7 +86,7 @@ img{
     border-radius: 4px;
     padding: 20px 0;
     position: relative;
-    cursor: pointer; /* 把鼠标的样式变成手型 */
+    cursor: pointer;
 }
 .siteList .site > .logo{
     width: 64px;
@@ -109,10 +105,9 @@ img{
     position: absolute;
     right: 10px;
     top: 5px;
-    display: none; /* 默认隐藏关闭图标 */
-    cursor: default; /* 把鼠标的样式变成默认形状 */
+    display: none;
+    cursor: default;
 }
-/* 当鼠标浮到 site 时，显示关闭图标 */
 .siteList .site:hover > .close{
     display: block;   
 }
@@ -143,4 +138,4 @@ img{
     margin-top: 4px;
 }
 
-/*# sourceMappingURL=style.2007536a.css.map */
+/*# sourceMappingURL=style.017066c6.css.map */
