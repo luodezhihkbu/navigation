@@ -24,9 +24,7 @@ const render = () => {
     siteList.forEach((node, index) => {
         let $li = $(`<li>
             <div class="site">
-                <div class="logo">
-                    <img class="${index}" src="${node.url}/favicon.ico" loading="lazy"> 
-                </div>
+                <div class="logo">${node.logo}</div>
                 <div class="link">${simplifyUrl(node.url)}</div>
                 <div class="close">
                     <svg class="icon">
@@ -35,9 +33,6 @@ const render = () => {
                 </div>
             </div> 
         </li>`).insertBefore($lastLi)  
-        $(`.${index}`).on('error', function() {
-            $(`.${index}`).replaceWith(`<div>${node.logo}</div>`)
-        })
         $li.on('click', () => {
             window.open(node.url)
         })

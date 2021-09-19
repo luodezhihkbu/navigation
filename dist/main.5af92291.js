@@ -158,10 +158,7 @@ var simplifyUrl = function simplifyUrl(url) {
 var render = function render() {
   $('li:not(.last)').remove();
   siteList.forEach(function (node, index) {
-    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">\n                    <img class=\"".concat(index, "\" src=\"").concat(node.url, "/favicon.ico\" loading=\"lazy\"> \n                </div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n            </div> \n        </li>")).insertBefore($lastLi);
-    $(".".concat(index)).on('error', function () {
-      $(".".concat(index)).replaceWith("<div>".concat(node.logo, "</div>"));
-    });
+    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">".concat(node.logo, "</div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n            </div> \n        </li>")).insertBefore($lastLi);
     $li.on('click', function () {
       window.open(node.url);
     });
@@ -199,4 +196,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.4e8563cc.js.map
+//# sourceMappingURL=main.5af92291.js.map
