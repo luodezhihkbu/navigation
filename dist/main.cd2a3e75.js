@@ -155,7 +155,7 @@ var simplifyUrl = function simplifyUrl(url) {
 var render = function render() {
   $('li:not(.last)').remove();
   siteList.forEach(function (node, index) {
-    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">".concat(node.logo, "</div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n                <div class=\"tip\">\u53EF\u4EE5\u6309\u952E\u76D8\u4E0A\u7684\u5B57\u6BCD\u6253\u5F00\u6211~</div>\n            </div> \n        </li>")).insertBefore($lastLi);
+    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">".concat(node.logo, "</div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"tip\">\u53EF\u4EE5\u6309\u952E\u76D8\u4E0A\u7684\u5B57\u6BCD\u6253\u5F00\u6211~</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n                \n            </div> \n        </li>")).insertBefore($lastLi);
     $li.on('click', function () {
       window.open(node.url);
     });
@@ -167,6 +167,14 @@ var render = function render() {
     });
     $li.on('click', '.tip', function (e) {
       e.stopPropagation();
+    });
+    $li.on('touchstart', function () {
+      var $close = this.lastElementChild.lastElementChild;
+      $close.setAttribute('style', 'display: block');
+    });
+    $li.on('touchend', function () {
+      var $close = this.lastElementChild.lastElementChild;
+      $close.setAttribute('style', 'display: none');
     });
   });
 };
@@ -196,4 +204,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.c526ef40.js.map
+//# sourceMappingURL=main.cd2a3e75.js.map

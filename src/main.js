@@ -25,12 +25,13 @@ const render = () => {
             <div class="site">
                 <div class="logo">${node.logo}</div>
                 <div class="link">${simplifyUrl(node.url)}</div>
+                <div class="tip">可以按键盘上的字母打开我~</div>
                 <div class="close">
                     <svg class="icon">
                         <use xlink:href="#icon-close"></use>
                     </svg>
                 </div>
-                <div class="tip">可以按键盘上的字母打开我~</div>
+                
             </div> 
         </li>`).insertBefore($lastLi)  
         $li.on('click', () => {
@@ -44,7 +45,15 @@ const render = () => {
         }) 
         $li.on('click', '.tip', (e) => {
             e.stopPropagation() 
-        }) 
+        })
+        $li.on('touchstart', function() {
+            let $close = this.lastElementChild.lastElementChild
+            $close.setAttribute('style', 'display: block')
+        })
+        $li.on('touchend', function() {
+            let $close = this.lastElementChild.lastElementChild
+            $close.setAttribute('style', 'display: none')
+        })
     })  
 }
 

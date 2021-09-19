@@ -110,7 +110,7 @@ img{
 }
 .siteList .site > .tip{
     position: absolute;
-    top: -25px;
+    top: -30px;
     display: none;
     cursor: default;
     border: 1px solid #ddd;
@@ -121,11 +121,13 @@ img{
     background: white;
     font-size: 2px;
 }
-.siteList .site:hover > .close{
-    display: block;   
-}
-.siteList .site:hover > .tip{
-    display: block;   
+@media (min-width: 500px) {
+    .siteList .site:hover > .close{
+        display: block;   
+    }
+    .siteList .site:hover > .tip{
+        display: block;   
+    }
 }
 .siteList .addButton{
     width: 160px;
@@ -155,4 +157,4 @@ img{
     margin-top: 4px;
 }
 
-/*# sourceMappingURL=style.32a94c13.css.map */
+/*# sourceMappingURL=style.1eccffb1.css.map */
