@@ -123,11 +123,11 @@ var siteList = JSON.parse(localStorage.getItem('siteList')) || [{
   logo: 'G',
   url: 'https://github.com'
 }, {
-  logo: 'G',
-  url: 'https://gitee.com'
-}, {
   logo: 'J',
   url: 'https://juejin.cn'
+}, {
+  logo: 'V',
+  url: 'https://v2ex.com/'
 }, {
   logo: 'S',
   url: 'https://stackoverflow.com'
@@ -135,20 +135,17 @@ var siteList = JSON.parse(localStorage.getItem('siteList')) || [{
   logo: 'Z',
   url: 'https://www.zhihu.com'
 }, {
-  logo: 'T',
-  url: 'https://www.typescriptlang.org'
-}, {
-  logo: 'S',
-  url: 'https://sass.bootcss.com'
-}, {
-  logo: 'D',
-  url: 'https://developer.mozilla.org'
+  logo: 'I',
+  url: 'https://www.iconfont.cn/'
 }, {
   logo: 'E',
   url: 'https://echarts.apache.org'
 }, {
   logo: 'J',
   url: 'https://jsbin.com'
+}, {
+  logo: 'D',
+  url: 'https://developer.mozilla.org'
 }];
 
 var simplifyUrl = function simplifyUrl(url) {
@@ -158,7 +155,7 @@ var simplifyUrl = function simplifyUrl(url) {
 var render = function render() {
   $('li:not(.last)').remove();
   siteList.forEach(function (node, index) {
-    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">".concat(node.logo, "</div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n            </div> \n        </li>")).insertBefore($lastLi);
+    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">".concat(node.logo, "</div>\n                <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                </div>\n                <div class=\"tip\">\u53EF\u4EE5\u6309\u952E\u76D8\u4E0A\u7684\u5B57\u6BCD\u6253\u5F00\u6211~</div>\n            </div> \n        </li>")).insertBefore($lastLi);
     $li.on('click', function () {
       window.open(node.url);
     });
@@ -167,6 +164,9 @@ var render = function render() {
       siteList.splice(index, 1);
       localStorage.setItem('siteList', JSON.stringify(siteList));
       render();
+    });
+    $li.on('click', '.tip', function (e) {
+      e.stopPropagation();
     });
   });
 };
@@ -196,4 +196,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.5af92291.js.map
+//# sourceMappingURL=main.c526ef40.js.map

@@ -47,6 +47,7 @@ img{
     background: #067ABB;
     color: white;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .globalMain{
@@ -107,7 +108,23 @@ img{
     display: none;
     cursor: default;
 }
+.siteList .site > .tip{
+    position: absolute;
+    top: -25px;
+    display: none;
+    cursor: default;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px lightgray;
+    white-space: nowrap;
+    padding: 5px;
+    background: white;
+    font-size: 2px;
+}
 .siteList .site:hover > .close{
+    display: block;   
+}
+.siteList .site:hover > .tip{
     display: block;   
 }
 .siteList .addButton{
@@ -120,6 +137,7 @@ img{
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 20px 0;
+    cursor: pointer;
 }
 .siteList .addButton .icon{
     width: 60px;

@@ -1,15 +1,14 @@
 const $lastLi = $('.last')
 const siteList = JSON.parse(localStorage.getItem('siteList')) || [   
     {logo: 'G', url: 'https://github.com'},
-    {logo: 'G', url: 'https://gitee.com'},
     {logo: 'J', url: 'https://juejin.cn'},
+    {logo: 'V', url: 'https://v2ex.com/'},
     {logo: 'S', url: 'https://stackoverflow.com'},
     {logo: 'Z', url: 'https://www.zhihu.com'},
-    {logo: 'T', url: 'https://www.typescriptlang.org'},
-    {logo: 'S', url: 'https://sass.bootcss.com'},
-    {logo: 'D', url: 'https://developer.mozilla.org'},
+    {logo: 'I', url: 'https://www.iconfont.cn/'},
     {logo: 'E', url: 'https://echarts.apache.org'},
-    {logo: 'J', url: 'https://jsbin.com'}
+    {logo: 'J', url: 'https://jsbin.com'},
+    {logo: 'D', url: 'https://developer.mozilla.org'}
 ]
 
 const simplifyUrl = (url) =>{
@@ -31,6 +30,7 @@ const render = () => {
                         <use xlink:href="#icon-close"></use>
                     </svg>
                 </div>
+                <div class="tip">可以按键盘上的字母打开我~</div>
             </div> 
         </li>`).insertBefore($lastLi)  
         $li.on('click', () => {
@@ -41,7 +41,10 @@ const render = () => {
             siteList.splice(index, 1) 
             localStorage.setItem('siteList', JSON.stringify(siteList))
             render()
-        })  
+        }) 
+        $li.on('click', '.tip', (e) => {
+            e.stopPropagation() 
+        }) 
     })  
 }
 
